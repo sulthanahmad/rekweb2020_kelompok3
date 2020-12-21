@@ -1,0 +1,131 @@
+body {
+}
+
+.btn btn-primary {
+  background-color: #d17128;
+}
+
+.orange {
+  background-color: #d17128;
+}
+
+.btn-outline-orange {
+  color: #d17128;
+  border-color: #d17128;
+}
+.btn-outline-orange:hover {
+  background-color: #d17128;
+  color: black;
+  border-color: black;
+}
+
+.btn-outline-orange2 {
+  background-color: #d17128;
+  color: black;
+  border-color: black;
+}
+.btn-outline-orange2:hover {
+  background-color: black;
+  color: #d17128;
+  border-color: #d17128;
+}
+
+.form1 {
+  margin-left: 200px;
+  width: 200px;
+}
+
+.navbar-brand {
+  margin-left: 100px;
+}
+
+.d-flex {
+  margin-right: 70px;
+}
+.d-flex input {
+  width: 450px;
+}
+
+.login {
+  margin-right: 20px;
+}
+
+.login .btn {
+  width: 80px;
+}
+
+.card {
+  border-radius: 20px;
+}
+
+.card-width {
+  width: 250px;
+  display: flex;
+}
+.card-temukan {
+  text-decoration: none;
+  color: black;
+}
+
+.img-radius {
+  border-radius: 20px 20px 0px 0px;
+}
+.card-temukan:hover {
+  color: black;
+  box-shadow: 1px 3px 3px 3px rgb(184, 181, 181);
+  transition: box-shadow 0.3s ease-in-out;
+
+  border-radius: 20px;
+}
+
+.footer {
+  padding: 0 0 30px 0;
+  color: #fff;
+  font-size: 14px;
+}
+
+.loc {
+  display: flex;
+}
+
+.kontainer-lokasi {
+  width: 1300px;
+}
+
+.card-location {
+  width: 300px;
+}
+
+.bg-footer {
+  background-color: rgb(247, 247, 247);
+  color: black;
+}
+
+.hrr {
+  margin-left: 300px;
+  width: 1300px;
+}
+
+.icon-loc {
+  float: right;
+  margin-top: 5px;
+  size: 5px;
+}
+
+.btn-login {
+  background-color: #d17128;
+  color: white;
+}
+
+.img-profile {
+  width: 40px;
+  height: 40px;
+}
+
+.card-detail {
+  margin-top: 200px;
+}
+
+.p-detail {
+  margin-top: -10px;
+}
