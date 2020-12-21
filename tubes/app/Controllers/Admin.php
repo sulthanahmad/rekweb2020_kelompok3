@@ -2,31 +2,28 @@
 
 namespace App\Controllers;
 
+use App\Models\AdminModel;
+
 class Admin extends BaseController
 {
 
     protected $db, $builder;
     public function __construct()
     {
-        $this->db  = \Config\Database::connect();
-        $this->builder = $this->db->table('Users');
+        $this->adminModel = new AdminModel();
     }
 
     public function index()
     {
-        $data['title'] = 'User List';
-        // $data['title'] = 'User List';
-        // $users = new \Myth\Auth\Models\UserModel();
-        // $data['users'] =  $users->findAll();
+        $data = [
+
+            'title' => 'Edit Profile',
+            'users' => $this->adminModel->getUser()
+        ];
 
 
-        $this->builder->select('users.id as userid, username, email,  name');
-        $this->builder->join('auth_groups_users', 'auth_groups_users.user_id = users.id');
-        $this->builder->join('auth_groups', 'auth_groups.id = auth_groups_users.group_id');
-        $this->query = $this->builder->get();
 
 
-        $data['users'] = $this->query->getResult();
 
 
         return view('admin/index', $data);
@@ -77,5 +74,22 @@ class Admin extends BaseController
         $this->AdminModel->delete($id);
         session()->setFlashdata('pesan', 'Data berhasil dihapus.');
         return redirect()->to('/admin');
+    }
+
+
+
+
+
+    public function editProfile()
+    {
+        $data = [
+
+            'title' => 'Edit Profile',
+            'user' => $this->adminModel->getAdmin()
+        ];
+
+
+
+        return view('admin/editProfile', $data);
     }
 }

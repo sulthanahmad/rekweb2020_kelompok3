@@ -48,7 +48,7 @@
 
     <!-- Nav Item - Edit Profile -->
     <li class="nav-item">
-        <a class="nav-link" href="tables.html">
+        <a class="nav-link" href="/editProfile">
             <i class="fas fa-user-edit"></i>
             <span>Edit Profile</span></a>
     </li>

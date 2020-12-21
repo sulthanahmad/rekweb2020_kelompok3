@@ -10,12 +10,12 @@ class LokasiModel extends Model
     protected $useTimestamps = true;
     protected $allowedFields = ['daerah', 'kota'];
 
-    public function getLokasi($slug = false)
+    public function getLokasi($id = false)
     {
-        if ($slug == false) {
+        if ($id == false) {
             return $this->findAll();
         }
 
-        return $this->where(['slug' => $slug])->first();
+        return $this->where(['id' => $id])->first();
     }
 }

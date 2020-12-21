@@ -8,14 +8,23 @@ class AdminModel extends Model
 {
     protected $table = 'users';
     protected $useTimestamps = true;
-    protected $allowedFields = ['email', 'username', 'fullname', 'user_image', 'password_hash'];
+    protected $allowedFields = ['email', 'username', 'fullname', 'user_image'];
 
-    public function getAdmin($slug = false)
+    public function getAdmin()
     {
-        if ($slug == false) {
-            return $this->findAll();
-        }
 
-        return $this->where(['slug' => $slug])->first();
+
+        return $this->where(['id' => user_id()])->first();
+    }
+
+    public function getUser()
+    {
+
+
+        return $this->distinct()
+            ->from('auth_groups')
+            ->join('auth_groups_users', 'auth_groups.id = auth_groups_users.group_id')
+            ->where('users.id = auth_groups_users.user_id')
+            ->findAll();
     }
 }
