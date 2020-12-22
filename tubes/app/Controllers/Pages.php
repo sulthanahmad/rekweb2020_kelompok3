@@ -3,6 +3,8 @@
 namespace App\Controllers;
 
 use App\Models\LokasiModel;
+use App\Models\AdminModel;
+
 
 class Pages extends BaseController
 {
@@ -24,5 +26,16 @@ class Pages extends BaseController
         ];
 
         return view('pages/index', $data);
+    }
+
+    public function detailRes($id)
+    {
+        $data = [
+
+            'title' => 'Edit Profile',
+            'resto' => $this->lokasiModel->getLokasi($id)
+        ];
+
+        return view('pages/detailRes', $data);
     }
 }

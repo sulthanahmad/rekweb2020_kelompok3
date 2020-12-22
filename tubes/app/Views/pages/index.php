@@ -59,7 +59,7 @@ $result = get_CURL('https://developers.zomato.com/api/v2.1/geocode?lat=' . $rest
                     <?php } ?>
                     ">
                 <?php if (logged_in()) { ?>
-                    Profile
+                    <?= user()->username; ?>
                 <?php } else { ?>
                     Login
                 <?php } ?>
@@ -75,11 +75,25 @@ $result = get_CURL('https://developers.zomato.com/api/v2.1/geocode?lat=' . $rest
     <div class="container pt-5 mb-5 card-detail p-lokasi">
         <p class="a-pages text-center  "><a class="a-pages" href="/user/index"> Beranda </a> / <?= $resto['daerah']; ?></p>
         <h3 class=""> Makanan daerah di daerah <?= $resto['daerah']; ?></h3>
-        <div class="row justify-content-center mt-5">
-            <?php for ($i = 0; $i < 8; $i++) : ?>
+        <div class="row justify-content-left mt-5">
+            <?php for ($i = 0; $i < 9; $i++) : ?>
                 <div class="col-md-3 mt-5 pb-5 ">
-                    <div class="card card-lokasi " style="width: 19.5rem;">
-                        <a href="" class="card-temukan"> <img src="<?= $result['nearby_restaurants'][$i]['restaurant']['thumb']; ?>" class="card-img-top img-radius" alt="...">
+                    <div class="card " style="width: 19.5rem; margin-top:-70px ">
+
+                        <a href="/pages/detailRes/<?= $resto['id']; ?>" class="card-temukan" style="height: 500px; ">
+                            <?php if (empty($result['nearby_restaurants'][$i]['restaurant']['thumb'])) : ?>
+                                <img src="/img/noimage.png" width="300px" height="310px" alt="">
+                            <?php else : ?>
+                                <img src="<?= $result['nearby_restaurants'][$i]['restaurant']['thumb']; ?>" class="card-img-top img-radius" alt="...">
+                            <?php endif; ?>
+
+
+
+
+
+
+
+
                             <div class="card-body">
 
                                 <h5 class="card-title mb-4"><b><?= $result['nearby_restaurants'][$i]['restaurant']['name']; ?></b></h5>

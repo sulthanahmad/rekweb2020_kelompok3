@@ -40,7 +40,7 @@
                     <?php } ?>
                     ">
                 <?php if (logged_in()) { ?>
-                    Profile
+                    <?= user()->username; ?>
                 <?php } else { ?>
                     Login
                 <?php } ?>
@@ -62,7 +62,7 @@
         <div class="row justify-content-center">
             <div class="col-md-3">
                 <div class="card " style="width: 19rem;">
-                    <a href="detail.php" class="card-temukan"> <img src="/img/res.jpg" class="card-img-top img-radius" alt="...">
+                    <a href="/main" class="card-temukan"> <img src="/img/res.jpg" class="card-img-top img-radius" alt="...">
                         <div class="card-body">
                             <h5 class="card-title"> Temukan restoran </h5>
                             <p>Cari tempat terbaik di kota Bandung</p>
@@ -90,7 +90,7 @@
                         <div class="card ">
                             <a href="/pages/<?= $l->id; ?>" class="card-temukan">
                                 <div class="card-body">
-                                    <p class="card-text" style="font-size: 18px;"><?= $l->daerah; ?>
+                                    <p class="card-text" style="font-size: 18px;"><?= $l->daerah; ?> (9 tempat)
                                         <i class=" fas fa-chevron-right icon-loc"></i></p>
                                 </div>
                             </a>
@@ -116,10 +116,12 @@
                 </div>
                 <div class="row justify-content-center">
                     <div class="col-md-5 pb-5">
+                        <h5 style="margin-left:150px;"><b> Logo </b></h5>
                         <img src="/img/logooo.png" alt="" style="width: 350px;">
                     </div>
                     <div class="col-md-5 pb-5">
-                        <p>Le Pesto adalah website untuk mencari sebuah restauran terdekat anda didaerah Bandung, Le Pesto hadir untuk memberikan info terkait restaurant </p>
+                        <p><br><br> Le Pesto merupakan website yang menyediakan informasi sebuah restaurant yang ada di Kota Bandung. Le Pesto hadir untuk mempermudah kita untuk menjelajahi Restaurant terbaik berdasarkan Tren dan rekomendasi dari customernya. Dan website ini juga sangat membantu pengguna untuk mencari informasi terkait restaurant-restaurant yang ada di sekitar Kota Bandung, beserta informasi nama tempat, lokasi, dan sebagainya. <br> <br>
+                            Dengan adanya website ini tentunya sangat membantu pengguna untuk menemukan restaurant yang sesuai dengan kriteria yang diinginkan. Jelajahi restaurant yang anda inginkan menggunakan website Le Pesto. Kami Pastikan anda akan terbantu dengan informasi yang kami hadirkan dan kami sediakan.</p>
                     </div>
                 </div>
             </div>

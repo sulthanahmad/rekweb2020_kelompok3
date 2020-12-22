@@ -50,8 +50,10 @@ $routes->get('/editProfile', 'Admin::editProfile');
 $routes->get('/pages/(:num)', 'Pages::index/$1');
 
 // Detail Resto
-$routes->get('/detailRes', 'Pages::index');
+$routes->get('/detailRes', 'Pages::detailRes');
 
+// Edit Profile
+$routes->get('/main', 'Main::main');
 
 
 

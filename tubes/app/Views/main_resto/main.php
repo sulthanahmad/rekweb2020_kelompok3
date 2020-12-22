@@ -3,7 +3,7 @@ function get_CURL($url)
 {
     $curl = curl_init();
     curl_setopt($curl, CURLOPT_URL, $url);
-    curl_setopt($curl, CURLOPT_RETURNTRANSFER, 10);
+    curl_setopt($curl, CURLOPT_RETURNTRANSFER, 20);
     $result = curl_exec($curl);
     curl_close($curl);
 
@@ -12,7 +12,9 @@ function get_CURL($url)
 }
 
 
-$result = get_CURL('https://developers.zomato.com/api/v2.1/restaurant?lat' . $resto['lat'] . '&lon=' . $resto['lon'] . '&res_id=18756491&apikey=0a62db4d542c54b65c4c29f09daa2bb6');
+$result = get_CURL('https://developers.zomato.com/api/v2.1/geocode?lat=-6.903363&lon=107.6080522&apikey=0a62db4d542c54b65c4c29f09daa2bb6');
+
+
 
 
 ?>
@@ -70,71 +72,29 @@ $result = get_CURL('https://developers.zomato.com/api/v2.1/restaurant?lat' . $re
     </nav>
 
 
-    <p class="a-detail text-center  "><a class="a-detail" href="/user/index"> Beranda </a> / Riau / <b> Resto </b></p>
-
-    <div class="container mb-5 pb-5 ">
-        <div class="card bg-transparent text-white mt-4 " style="border: transparent;">
-            <img src="/img/resto.jpg" class="card-img img-resto" style="width: 800px;">
-        </div>
-        <h2 class="card-title mb-4 pt-3"><b><?= $result['name']; ?></b></h2>
-        <p class="p-detail"> Restoran Jepang</p>
-        <p class="p-detail"> Riau </p>
-        <p class="p-detail"> Tutup </p>
-        <ul class="nav nav-pills card-header-pills ">
-            <li class="nav-item" style="padding-right: 10px;">
-                <a class="nav-link active" href="#" style=" background-color: #d17128;"><i class="fas fa-directions"></i> Petunjuk</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link active" href="#" style=" background-color: #d17128;"><i class="fas fa-share"></i> Copy URL</a>
-            </li>
-        </ul>
-    </div>
 
 
+    <div class="container pt-5 mb-5 card-detail p-lokasi">
+        <p class="a-pages text-center"><a class="a-pages" style="margin-right: 80px;" href="/user/index"> Beranda </a></p>
+        <h3 class=""> Temukan Restoran</h3>
+        <div class="row justify-content-left mt-5">
+            <?php for ($i = 0; $i < 9; $i++) : ?>
+                <div class="col-md-3 mt-5 pb-5 ">
+                    <div class="card " style="width: 19.5rem; margin-top:-70px ">
+                        <a href="" class="card-temukan" style="height: 500px; "> <img src="<?= $result['nearby_restaurants'][$i]['restaurant']['thumb']; ?>" class="card-img-top img-radius" alt="...">
+                            <div class="card-body">
 
-    <div class="container con-desk" style="width: 830px; border:transparent; height:500px; ">
-        <div class=" card " style="border: transparent; ">
-            <div class="card-header" style="background-color:white;">
-                <ul class="nav nav-pills card-header-pills ">
-                    <li class="nav-item" style="padding-right: 10px;">
-                        <a class="nav-link active" href="#" style=" background-color: #d17128;">Deskripsi</a>
-                    </li>
-                    <li class="nav-item" style="padding-right: 10px;">
-                        <a class="nav-link " href="#" style="color: black;">Gallery</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link " href="#" style="color: black;">Menu</a>
-                    </li>
-                </ul>
-            </div>
-            <div class="card-body ">
-                <h5 class="text-left"><b> Tentang Restoran Ini </b></h5>
-                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
-            </div>
+                                <h5 class="card-title mb-4"><b><?= $result['nearby_restaurants'][$i]['restaurant']['name']; ?></b></h5>
+                                <p class="p-detail">Rating <?= $result['nearby_restaurants'][$i]['restaurant']['user_rating']['aggregate_rating']; ?></p>
+                                <p class="p-detail"><?= $result['nearby_restaurants'][$i]['restaurant']['location']['address']; ?></p>
+                                <p class="p-detail">Rp. <?= $result['nearby_restaurants'][$i]['restaurant']['average_cost_for_two']; ?> untuk 2 orang.</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            <?php endfor; ?>
         </div>
     </div>
-
-
-    <div class="container" style="margin-right: -570px; margin-top:-495px; height:500px; ">
-        <div class="card" style="width: 20rem; height: 400px;  box-shadow: 1px 2px 2px 2px rgb(184, 181, 181);">
-            <div class="card-body">
-                <h5>No Telpon</h5>
-                <p class="card-text pb-4">08962718263</p>
-                <h5>Petunjuk</h5>
-            </div>
-        </div>
-    </div>
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -147,7 +107,7 @@ $result = get_CURL('https://developers.zomato.com/api/v2.1/restaurant?lat' . $re
     <!-- Footer -->
     <footer class="bg-footer text-black text-center text-lg-start pt-2">
         <!-- Grid container -->
-        <div class="container p-4 pt-5 mt-5">
+        <div class="container p-4 pt-5">
             <!--Grid row-->
             <div class="row">
                 <!--Grid column-->

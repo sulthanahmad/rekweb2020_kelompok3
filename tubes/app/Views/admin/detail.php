@@ -12,24 +12,24 @@
             <div class="card mb-3" style="max-width: 540px;">
                 <div class="row g-0">
                     <div class="col-md-">
-                        <img src="<?= base_url('/img/' . $user['user_image']) ?>" class="card-img" alt="<?= $user['username']; ?>">
+                        <img src="<?= base_url('/img/' . $users['user_image']) ?>" class="card-img" alt="<?= $users['username']; ?>">
                     </div>
                     <div class=" col-md-8">
                         <div class="card-body">
                             <ul class="list-group list-group-flush">
                                 <li class="list-group-item">
-                                    <h4><?= $user->username; ?></h4>
+                                    <h4><?= $users['username']; ?></h4>
                                 </li>
-                                <?php if ($user->fullname) : ?>
-                                    <li class="list-group-item"><?= $user->fullname; ?></li>
+                                <?php if ($users['fullname']) : ?>
+                                    <li class="list-group-item"><?= $users['fullname']; ?></li>
                                 <?php endif; ?>
 
-                                <li class="list-group-item"><?= $user->email; ?></li>
+                                <li class="list-group-item"><?= $users['email']; ?></li>
                                 <li class="list-group-item">
-                                    <span class="badge badge-<?= ($user->name == 'admin') ? 'success' : 'warning'; ?>"> <?= $user->name; ?></span>
+                                    <span class="badge badge-<?= ($users['name'] == 'admin') ? 'success' : 'warning'; ?>"> <?= $users['name']; ?></span>
                                 </li>
                                 <li class="list-group-item">
-                                    <small><a href="<?= base_url('admin'); ?>">&laquo; back to user list</a></small>
+                                    <small><a href="<?= base_url('admin'); ?>">&laquo; back to users list</a></small>
                                 </li>
                             </ul>
 
