@@ -88,7 +88,7 @@
                 <?php foreach ($lokasi as $l) : ?>
                     <div class="col-4 mb-4 ">
                         <div class="card ">
-                            <a href="" class="card-temukan">
+                            <a href="/pages/<?= $l->id; ?>" class="card-temukan">
                                 <div class="card-body">
                                     <p class="card-text" style="font-size: 18px;"><?= $l->daerah; ?>
                                         <i class=" fas fa-chevron-right icon-loc"></i></p>
@@ -116,10 +116,10 @@
                 </div>
                 <div class="row justify-content-center">
                     <div class="col-md-5 pb-5">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Natus, molestiae sunt doloribus error ullam expedita cumque blanditiis quas vero, qui, consectetur modi possimus. Consequuntur optio ad quae possimus, debitis earum.</p>
+                        <img src="/img/logooo.png" alt="" style="width: 350px;">
                     </div>
                     <div class="col-md-5 pb-5">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Natus, molestiae sunt doloribus error ullam expedita cumque blanditiis quas vero, qui, consectetur modi possimus. Consequuntur optio ad quae possimus, debitis earum.</p>
+                        <p>Le Pesto adalah website untuk mencari sebuah restauran terdekat anda didaerah Bandung, Le Pesto hadir untuk memberikan info terkait restaurant </p>
                     </div>
                 </div>
             </div>

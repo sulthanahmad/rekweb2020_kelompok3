@@ -8,7 +8,7 @@ class LokasiModel extends Model
 {
     protected $table = 'lokasi';
     protected $useTimestamps = true;
-    protected $allowedFields = ['daerah', 'kota'];
+    protected $allowedFields = ['daerah', 'kota', 'lat', 'lon'];
 
     public function getLokasi($id = false)
     {

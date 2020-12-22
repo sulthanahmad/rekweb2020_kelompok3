@@ -31,16 +31,35 @@ $routes->setAutoRoute(true);
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
+
+//User
 $routes->get('/', 'User::index');
 $routes->get('/user/(:num)', 'User::detail/$1');
 $routes->get('/profile', 'User::profile');
 
+
+// Admin
 $routes->get('/admin', 'Admin::index', ['filter' => 'role:admin']);
 $routes->get('/admin/index', 'Admin::index', ['filter' => 'role:admin']);
 $routes->get('/admin/(:num)', 'Admin::detail/$1', ['filter' => 'role:admin']);
 
-
+// Edit Profile
 $routes->get('/editProfile', 'Admin::editProfile');
+
+// Pager Lokasi
+$routes->get('/pages/(:num)', 'Pages::index/$1');
+
+// Detail Resto
+$routes->get('/detailRes', 'Pages::index');
+
+
+
+
+
+
+
+
+
 
 /**
  * --------------------------------------------------------------------
