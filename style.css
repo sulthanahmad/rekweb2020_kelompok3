@@ -1,0 +1,39 @@
+/* Navbar */
+
+.nav-link {
+  text-transform: uppercase;
+  margin-right: 30px;
+}
+
+/* Jumbotron */
+
+.jumbotron {
+  background-image: url(img/4.jpg);
+  background-size: cover;
+  height: 650px;
+}
+
+.jumbotron .display-4 {
+  color: white;
+  text-align: center;
+  font-weight: 500;
+}
+
+.jumbotron .lead {
+  color: white;
+  text-align: center;
+}
+
+/* Card */
+
+.card {
+  cursor: pointer;
+  width: 300px;
+  font-size: larger;
+}
+
+/* About */
+
+.about {
+  background-color: orange;
+}
