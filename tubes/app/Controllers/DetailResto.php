@@ -20,9 +20,9 @@ class DetailResto extends BaseController
             'resto' => $this->lokasiModel->getLokasi($id)
 
 
-
         ];
 
         return view('detail_resto/index', $data);
     }
+    //--------------------------------------------------------------------
 }

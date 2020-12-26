@@ -22,7 +22,7 @@
     <!-- nav -->
     <nav class="navbar navbar-dark bg-dark fixed-top">
         <div class="container-fluid">
-            <a class="navbar-brand "><img src="/img/logo2.png" height="35" alt=""></a>
+            <a class="navbar-brand" href="/user/index"><img src="/img/logo2.png" height="35" alt=""></a>
             <form class="d-flex">
                 <div class="d-flex ">
                     <input class="form-control me-1  " type="search" placeholder="Search" aria-label="Search">
@@ -103,9 +103,6 @@
         </div>
 
 
-
-
-
         <!-- About -->
         <section class="about pt-2" id="about">
             <div class="container pt-5 mb-5">
@@ -144,6 +141,12 @@
                         </p>
                         <p class="pt-0">
                             Jalan Dr. Setiabudi No 193, Bandung
+                        </p>
+                        <p>
+                            <i class="fab fa-instagram"></i>
+                            <i class="fab fa-facebook"></i>
+                            <i class="fab fa-twitter"></i>
+
                         </p>
                     </div>
                     <!--Grid column-->

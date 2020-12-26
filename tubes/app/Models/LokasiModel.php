@@ -8,7 +8,7 @@ class LokasiModel extends Model
 {
     protected $table = 'lokasi';
     protected $useTimestamps = true;
-    protected $allowedFields = ['daerah', 'kota', 'lat', 'lon'];
+    protected $allowedFields = ['daerah', 'kota', 'latitude', 'longitude'];
 
     public function getLokasi($id = false)
     {
@@ -19,3 +19,4 @@ class LokasiModel extends Model
         return $this->where(['id' => $id])->first();
     }
 }
+//--------------------------------------------------------------------

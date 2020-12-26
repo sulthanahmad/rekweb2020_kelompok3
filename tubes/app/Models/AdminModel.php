@@ -10,21 +10,36 @@ class AdminModel extends Model
     protected $useTimestamps = true;
     protected $allowedFields = ['email', 'username', 'fullname', 'user_image', 'name'];
 
-    public function getAdmin()
-    {
+    // public function getAdmin()
+    // {
+    //     return $this->where(['id' => user_id()])->first();
+    // }
 
+    public function getAdmin($id = 0)
+    {
 
         return $this->where(['id' => user_id()])->first();
     }
+    //--------------------------------------------------------------------
+
 
     public function getUser()
     {
-
 
         return $this->distinct()
             ->from('auth_groups')
             ->join('auth_groups_users', 'auth_groups.id = auth_groups_users.group_id')
             ->where('users.id = auth_groups_users.user_id')
             ->findAll();
+    }
+
+
+    public function getProfile($id = false)
+    {
+        if ($id == false) {
+            return $this->findAll();
+        }
+
+        return $this->where(['id' => $id])->first();
     }
 }

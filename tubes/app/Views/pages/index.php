@@ -12,8 +12,7 @@ function get_CURL($url)
 }
 
 
-$result = get_CURL('https://developers.zomato.com/api/v2.1/geocode?lat=' . $resto['lat'] . '&lon=' . $resto['lon'] . '&apikey=0a62db4d542c54b65c4c29f09daa2bb6&maxResults=20');
-
+$result = get_CURL('https://developers.zomato.com/api/v2.1/geocode?lat=' . $resto['latitude'] . '&lon=' . $resto['longitude'] . '&apikey=0a62db4d542c54b65c4c29f09daa2bb6&maxResults=20');
 
 ?>
 
@@ -41,7 +40,7 @@ $result = get_CURL('https://developers.zomato.com/api/v2.1/geocode?lat=' . $rest
     <!-- nav -->
     <nav class="navbar navbar-dark bg-dark fixed-top">
         <div class="container-fluid">
-            <a class="navbar-brand "><img src="/img/logo2.png" height="35" alt=""></a>
+            <a class="navbar-brand" href="/user/index"><img src="/img/logo2.png" height="35" alt=""></a>
             <form class="d-flex">
                 <div class="d-flex ">
                     <input class="form-control me-1  " type="search" placeholder="Search" aria-label="Search">
@@ -72,27 +71,22 @@ $result = get_CURL('https://developers.zomato.com/api/v2.1/geocode?lat=' . $rest
 
 
 
-    <div class="container pt-5 mb-5 card-detail p-lokasi">
-        <p class="a-pages text-center  "><a class="a-pages" href="/user/index"> Beranda </a> / <?= $resto['daerah']; ?></p>
+    <div class="container pt-5 mb-5 card-detail p-lokasi" style="margin-top:-5px;">
+        <p class="a-pages text-center"><a class="a-pages" href="/user/index"> Beranda </a> / <b> <?= $resto['daerah']; ?> </b> </p>
         <h3 class=""> Makanan daerah di daerah <?= $resto['daerah']; ?></h3>
         <div class="row justify-content-left mt-5">
             <?php for ($i = 0; $i < 9; $i++) : ?>
                 <div class="col-md-3 mt-5 pb-5 ">
                     <div class="card " style="width: 19.5rem; margin-top:-70px ">
 
-                        <a href="/pages/detailRes/<?= $resto['id']; ?>" class="card-temukan" style="height: 500px; ">
+                        <a href="/pages/detailRes/<?= $resto['id']; ?>?res_id=<?= $result['nearby_restaurants'][$i]['restaurant']['id']; ?>" class="card-temukan" style="height: 500px; ">
+
+
                             <?php if (empty($result['nearby_restaurants'][$i]['restaurant']['thumb'])) : ?>
                                 <img src="/img/noimage.png" width="300px" height="310px" alt="">
                             <?php else : ?>
                                 <img src="<?= $result['nearby_restaurants'][$i]['restaurant']['thumb']; ?>" class="card-img-top img-radius" alt="...">
                             <?php endif; ?>
-
-
-
-
-
-
-
 
                             <div class="card-body">
 
@@ -102,6 +96,8 @@ $result = get_CURL('https://developers.zomato.com/api/v2.1/geocode?lat=' . $rest
                                 <p class="p-detail">Rp. <?= $result['nearby_restaurants'][$i]['restaurant']['average_cost_for_two']; ?> untuk 2 orang.</p>
                             </div>
                         </a>
+
+
                     </div>
                 </div>
             <?php endfor; ?>

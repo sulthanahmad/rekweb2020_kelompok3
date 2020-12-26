@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Models\AdminModel;
+use App\Models\LokasiModel;
 
 class Admin extends BaseController
 {
@@ -11,6 +12,7 @@ class Admin extends BaseController
     public function __construct()
     {
         $this->adminModel = new AdminModel();
+        $this->lokasiModel = new LokasiModel();
     }
 
     public function index()
@@ -21,57 +23,30 @@ class Admin extends BaseController
             'users' => $this->adminModel->getUser()
         ];
 
-
-
-
-
-
         return view('admin/index', $data);
     }
     //--------------------------------------------------------------------
 
 
-
-
     public function detail($id = 0)
     {
-
         $data = [
 
             'title' => 'Edit Profile',
-            'users' => $this->adminModel->getAdmin()
+            'users' => $this->adminModel->getProfile($id)
         ];
 
-        if (empty($data['user'])) {
+        // var_dump($id);
+        // var_dump($data['users']);
+        // die;
+
+        if (empty($data['users'])) {
             return redirect()->to('/admin');
         }
 
         return view('admin/detail', $data);
     }
     //--------------------------------------------------------------------
-
-
-
-    public function delete($id)
-    {
-        // cari gambar berdasarkan id
-        $data = $this->AdminModel->find($id);
-
-
-        // cek jika file gambarnya default.png
-        if ($data['user_image'] != 'default.svg') {
-            // hapus gambar
-            unlink('img/' . $data['user_image']);
-        }
-
-
-        $this->AdminModel->delete($id);
-        session()->setFlashdata('pesan', 'Data berhasil dihapus.');
-        return redirect()->to('/admin');
-    }
-
-
-
 
 
     public function editProfile()
@@ -84,29 +59,90 @@ class Admin extends BaseController
 
         return view('admin/editProfile', $data);
     }
+    //--------------------------------------------------------------------
 
+
+    public function myProfile()
+    {
+        $data = [
+
+            'title' => 'My Profile | Le pesto',
+            'users' => $this->adminModel->getAdmin()
+        ];
+
+        return view('admin/myProfile', $data);
+    }
+    //--------------------------------------------------------------------
+
+
+    public function daerahView()
+    {
+        $data = [
+
+            'title' => 'Edit Profile',
+            'lokasi' => $this->lokasiModel->getLokasi()
+        ];
+
+
+        return view('admin/daerahView', $data);
+    }
+    //--------------------------------------------------------------------
+
+
+    public function delete($id)
+    {
+        // cari gambar berdasarkan id
+        $lokasi = $this->lokasiModel->find($id);
+
+
+        $this->lokasiModel->where('id',  $id)->delete();
+        session()->setFlashdata('pesan', 'Data berhasil dihapus');
+        return redirect()->to('/daerahView');
+    }
+    //--------------------------------------------------------------------
+
+
+    public function daerahEdit($id)
+    {
+        $data = [
+            'title' => 'Form Ubah Data Lokasi',
+            'validation' => \Config\Services::validation(),
+            'lokasi' => $this->lokasiModel->getLokasi($id)
+        ];
+
+
+
+        return view('admin/daerahEdit', $data);
+    }
+    //--------------------------------------------------------------------
 
 
     public function update($id)
     {
+
+        $this->lokasiModel->where('id', $id)
+            ->set([
+                'daerah' => $this->request->getVar('daerah'),
+                'kota' => $this->request->getVar('kota'),
+                'latitude' => $this->request->getVar('latitude'),
+                'longitude' => $this->request->getVar('longitude')
+
+            ])
+            ->update();
+        session()->setFlashdata('pesan', 'Data berhasil diubah');
+        return redirect()->to('/admin/daerahView');
+    }
+    //--------------------------------------------------------------------
+
+
+    public function updateProfile($id)
+    {
         // cek judul
-        $komikLama  = $this->adminModel->getAdmin($this->request->getVar('id'));
-        if ($komikLama['judul'] == $this->request->getVar('judul')) {
-            $rule_judul = 'required';
-        } else {
-            $rule_judul = 'required|is_unique[komik.judul]';
-        }
 
         if (!$this->validate([
-            'judul' => [
-                'rules' => $rule_judul,
-                'errors' => [
-                    'required' => '{field} komik harus diisi.',
-                    'is_unique' => '{field} komik sudah terdaftar'
-                ]
-            ],
-            'sampul' => [
-                'rules' => 'max_size[sampul,1024]|is_image[sampul]|mime_in[sampul,image/jpg,image/jpeg,image/png]',
+
+            'user_image' => [
+                'rules' => 'max_size[user_image,1024]|is_image[user_image]|mime_in[user_image,image/jpg,image/jpeg,image/png]',
                 'errors' => [
                     'max_size' => 'Ukuran gambar terlalu besar',
                     'is_image' => 'Yang anda pilih bukan gambar',
@@ -115,36 +151,34 @@ class Admin extends BaseController
             ]
         ])) {
             // $validation = \Config\Services::validation();
-            return redirect()->to('/komik/edit/' . $this->request->getVar('slug'))->withInput();
+            return redirect()->to('/admin/editProfile/' . $this->request->getVar('id'))->withInput();
         }
 
 
 
-        $fileSampul = $this->request->getFile('sampul');
+        $fileuser_image = $this->request->getFile('user_image');
         //cek gambar apakah tetap gambar lama
-        if ($fileSampul->getError() == 4) {
-            $namaSampul = $this->request->getVar('sampulLama');
+        if ($fileuser_image->getError() == 4) {
+            $namauser_image = $this->request->getVar('user_imageLama');
         } else {
             //generate  nama file random
-            $namaSampul = $fileSampul->getRandomName();
-            $fileSampul->move('img', $namaSampul);
+            $namauser_image = $fileuser_image->getRandomName();
+            $fileuser_image->move('img', $namauser_image);
             //hapus file lama
-            unlink('img/' . $this->request->getVar('sampulLama'));
+            unlink('img/' . $this->request->getVar('user_imageLama'));
         }
 
 
-        $slug = url_title($this->request->getVar('judul'), '-', true);
-        $this->komikModel->save([
-            'id' => $id,
-            'judul' => $this->request->getVar('judul'),
-            'slug' => $slug,
-            'penulis' => $this->request->getVar('penulis'),
-            'penerbit' => $this->request->getVar('penerbit'),
-            'sampul' => $namaSampul
-        ]);
+        $this->adminModel->where('id', $id)
+            ->set([
+                'email' => $this->request->getVar('email'),
+                'username' => $this->request->getVar('kota'),
+                'fullname' => $this->request->getVar('fullname'),
+                'user_image' => $this->request->getVar('user_image')
 
+            ])
+            ->update();
         session()->setFlashdata('pesan', 'Data berhasil diubah');
-
-        return redirect()->to('/komik');
+        return redirect()->to('/admin/daerahView');
     }
 }

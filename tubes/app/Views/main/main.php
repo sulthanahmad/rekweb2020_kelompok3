@@ -43,7 +43,7 @@ $result = get_CURL('https://developers.zomato.com/api/v2.1/geocode?lat=-6.903363
     <!-- nav -->
     <nav class="navbar navbar-dark bg-dark fixed-top">
         <div class="container-fluid">
-            <a class="navbar-brand "><img src="/img/logo2.png" height="35" alt=""></a>
+            <a class="navbar-brand" href="/user/index"> <img src="/img/logo2.png" height="35" alt=""></a>
             <form class="d-flex">
                 <div class="d-flex ">
                     <input class="form-control me-1  " type="search" placeholder="Search" aria-label="Search">
@@ -74,8 +74,8 @@ $result = get_CURL('https://developers.zomato.com/api/v2.1/geocode?lat=-6.903363
 
 
 
-    <div class="container pt-5 mb-5 card-detail p-lokasi">
-        <p class="a-pages text-center"><a class="a-pages" style="margin-right: 80px;" href="/user/index"> Beranda </a></p>
+    <div class="container pt-5 mb-5 card-detail p-lokasi" style="margin-top:5px;">
+        <p class="a-pages text-center"><a class="a-pages" href="/user/index"> Beranda </a> / <b> Temukan Restoran </b></p>
         <h3 class=""> Temukan Restoran</h3>
         <div class="row justify-content-left mt-5">
             <?php for ($i = 0; $i < 9; $i++) : ?>

@@ -12,7 +12,7 @@ function get_CURL($url)
 }
 
 
-$result = get_CURL('https://developers.zomato.com/api/v2.1/restaurant?lat' . $resto['lat'] . '&lon=' . $resto['lon'] . '&res_id=18756491&apikey=0a62db4d542c54b65c4c29f09daa2bb6');
+$result = get_CURL('https://developers.zomato.com/api/v2.1/restaurant?lat' . $resto['latitude'] . '&lon=' . $resto['longitude'] . '&res_id=' . $res_id . '&apikey=0a62db4d542c54b65c4c29f09daa2bb6');
 
 
 ?>
@@ -41,7 +41,7 @@ $result = get_CURL('https://developers.zomato.com/api/v2.1/restaurant?lat' . $re
     <!-- nav -->
     <nav class="navbar navbar-dark bg-dark fixed-top">
         <div class="container-fluid">
-            <a class="navbar-brand "><img src="/img/logo2.png" height="35" alt=""></a>
+            <a class="navbar-brand" href="/user/index"><img src="/img/logo2.png" height="35" alt=""></a>
             <form class="d-flex">
                 <div class="d-flex ">
                     <input class="form-control me-1  " type="search" placeholder="Search" aria-label="Search">
@@ -74,12 +74,12 @@ $result = get_CURL('https://developers.zomato.com/api/v2.1/restaurant?lat' . $re
 
     <div class="container mb-5 pb-5 ">
         <div class="card bg-transparent text-white mt-4 " style="border: transparent;">
-            <img src="/img/resto.jpg" class="card-img img-resto" style="width: 800px;">
+            <img src="<?= $result['thumb']; ?>" class="card-img img-resto" style="width: 600px;">
         </div>
         <h2 class="card-title mb-4 pt-3"><b><?= $result['name']; ?></b></h2>
         <p class="p-detail"> Restoran Jepang</p>
         <p class="p-detail"> Riau </p>
-        <p class="p-detail"> Tutup </p>
+        <p class="p-detail"> <?= $result['timings']; ?> </p>
         <ul class="nav nav-pills card-header-pills ">
             <li class="nav-item" style="padding-right: 10px;">
                 <a class="nav-link active" href="#" style=" background-color: #d17128;"><i class="fas fa-directions"></i> Petunjuk</a>

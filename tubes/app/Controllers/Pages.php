@@ -21,21 +21,22 @@ class Pages extends BaseController
             'title' => 'Makanan di daerah',
             'resto' => $this->lokasiModel->getLokasi($id),
 
-
-
         ];
 
         return view('pages/index', $data);
     }
+    //--------------------------------------------------------------------
+
 
     public function detailRes($id)
     {
         $data = [
-
             'title' => 'Edit Profile',
-            'resto' => $this->lokasiModel->getLokasi($id)
+            'resto' => $this->lokasiModel->getLokasi($id),
+            'res_id' => $this->request->getVar('res_id')
         ];
 
         return view('pages/detailRes', $data);
     }
+    //--------------------------------------------------------------------
 }

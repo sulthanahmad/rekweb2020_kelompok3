@@ -55,10 +55,20 @@ $routes->get('/detailRes', 'Pages::detailRes');
 // Edit Profile
 $routes->get('/main', 'Main::main');
 
+//daerah
+$routes->get('/daerahView', 'Daerah::daerahView', ['filter' => 'role:admin']);
+$routes->get('/daerah', 'Daerah::daerah', ['filter' => 'role:admin']);
+$routes->get('/myProfile', 'Admin::myProfile');
 
 
+//gallery Res
+$routes->get('/galleryRes', 'Main::galleryRes');
+
+$routes->delete('/admin/daerahView/(:num)', 'Admin::delete/$1', ['filter' => 'role:admin']);
+$routes->get('/admin/daerahEdit/(:segment)', 'Admin::daerahEdit/$1', ['filter' => 'role:admin']);
 
 
+$routes->get('/admin/editProfile/(:segment)', 'Admin::editProfile/$1');
 
 
 

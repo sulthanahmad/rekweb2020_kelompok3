@@ -9,7 +9,7 @@
     <!-- Page Heading -->
     <h1 class="h3 mb-4 text-gray-800">Edit Profile</h1>
 
-    <form action="" method="post" enctype="multipart/form-data">
+    <form action="/admin/updateProfile/<?= $user['id']; ?>" method="post" enctype="multipart/form-data">
         <img src="<?= base_url('/img/' . $user['user_image']) ?>" class="card-img" alt="<?= $user['username']; ?>" style="width: 250px;">
         <div class="custom-file mb-3 mt-5">
             <input type="file" name="user_image" class="custom-file-input" id="validatedCustomFile" required>

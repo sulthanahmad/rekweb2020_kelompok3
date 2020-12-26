@@ -41,7 +41,7 @@
 
     <!-- Nav Item - Profile -->
     <li class="nav-item">
-        <a class="nav-link" href="charts.html">
+        <a class="nav-link" href="/myProfile">
             <i class="fas fa-user"></i>
             <span>My Profile</span></a>
     </li>
@@ -52,6 +52,38 @@
             <i class="fas fa-user-edit"></i>
             <span>Edit Profile</span></a>
     </li>
+
+
+    <hr class="sidebar-divider">
+
+    <!-- Heading -->
+    <div class="sidebar-heading">
+        Lokasi
+    </div>
+
+
+    <!-- Nav Item - Profile -->
+    <li class="nav-item">
+        <a class="nav-link" href="/daerahView">
+            <i class="fas fa-user"></i>
+            <span>Daerah List</span></a>
+    </li>
+
+    <li class="nav-item">
+        <a class="nav-link" href="/daerah">
+            <i class="fas fa-user"></i>
+            <span>Daerah</span></a>
+    </li>
+
+
+
+
+
+
+
+
+
+
 
     <!-- Divider -->
     <hr class="sidebar-divider d-none d-md-block">
