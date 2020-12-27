@@ -54,27 +54,30 @@
     </li>
 
 
-    <hr class="sidebar-divider">
-
-    <!-- Heading -->
-    <div class="sidebar-heading">
-        Lokasi
-    </div>
 
 
-    <!-- Nav Item - Profile -->
-    <li class="nav-item">
-        <a class="nav-link" href="/daerahView">
-            <i class="fas fa-user"></i>
-            <span>Daerah List</span></a>
-    </li>
+    <?php if (in_groups('admin')) : ?>
+        <hr class="sidebar-divider">
 
-    <li class="nav-item">
-        <a class="nav-link" href="/daerah">
-            <i class="fas fa-user"></i>
-            <span>Daerah</span></a>
-    </li>
+        <!-- Heading -->
+        <div class="sidebar-heading">
+            Lokasi
+        </div>
 
+
+        <!-- Nav Item - daerah -->
+        <li class="nav-item">
+            <a class="nav-link" href="/daerahView">
+                <i class="fas fa-user"></i>
+                <span>Daerah List</span></a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link" href="/daerah">
+                <i class="fas fa-user"></i>
+                <span>Daerah</span></a>
+        </li>
+    <?php endif; ?>
 
 
 

@@ -34,12 +34,12 @@ class AdminModel extends Model
     }
 
 
-    public function getProfile($id = false)
+    public function getProfile()
     {
-        if ($id == false) {
-            return $this->findAll();
-        }
 
-        return $this->where(['id' => $id])->first();
+
+
+
+        return $this->where(['id' => user_id()])->first();
     }
 }

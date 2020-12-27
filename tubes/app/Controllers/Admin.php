@@ -74,6 +74,18 @@ class Admin extends BaseController
     }
     //--------------------------------------------------------------------
 
+    public function profile()
+    {
+        $data = [
+
+            'title' => 'My Profile | Le pesto',
+            'users' => $this->adminModel->getAdmin()
+        ];
+
+        return view('user/profile', $data);
+    }
+    //--------------------------------------------------------------------
+
 
     public function daerahView()
     {
@@ -137,48 +149,33 @@ class Admin extends BaseController
 
     public function updateProfile($id)
     {
-        // cek judul
-
-        if (!$this->validate([
-
-            'user_image' => [
-                'rules' => 'max_size[user_image,1024]|is_image[user_image]|mime_in[user_image,image/jpg,image/jpeg,image/png]',
-                'errors' => [
-                    'max_size' => 'Ukuran gambar terlalu besar',
-                    'is_image' => 'Yang anda pilih bukan gambar',
-                    'mime_in' => 'Yang anda pilih bukan gambar'
-                ]
-            ]
-        ])) {
-            // $validation = \Config\Services::validation();
-            return redirect()->to('/admin/editProfile/' . $this->request->getVar('id'))->withInput();
-        }
-
-
-
-        $fileuser_image = $this->request->getFile('user_image');
-        //cek gambar apakah tetap gambar lama
-        if ($fileuser_image->getError() == 4) {
-            $namauser_image = $this->request->getVar('user_imageLama');
+        //ambil foto
+        $foto = $this->request->getFile('user_image');
+        if ($foto->getError() == 4) {
+            $namafoto = $this->request->getVar('fotoLama');
         } else {
-            //generate  nama file random
-            $namauser_image = $fileuser_image->getRandomName();
-            $fileuser_image->move('img', $namauser_image);
-            //hapus file lama
-            unlink('img/' . $this->request->getVar('user_imageLama'));
+            //generate nama
+            $namafoto = $foto->getRandomName();
+            //pindahkan file ke img
+            $foto->move('img/', $namafoto);
         }
 
 
         $this->adminModel->where('id', $id)
             ->set([
                 'email' => $this->request->getVar('email'),
-                'username' => $this->request->getVar('kota'),
+                'username' => $this->request->getVar('username'),
                 'fullname' => $this->request->getVar('fullname'),
-                'user_image' => $this->request->getVar('user_image')
+                'user_image' => $namafoto
 
             ])
             ->update();
         session()->setFlashdata('pesan', 'Data berhasil diubah');
-        return redirect()->to('/admin/daerahView');
+        return redirect()->to('/admin/myProfile');
     }
+
+
+
+
+    //--------------------------------------------------------------------
 }

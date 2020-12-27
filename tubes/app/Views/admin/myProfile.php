@@ -7,14 +7,13 @@
     <!-- Page Heading -->
     <h1 class="h3 mb-4 text-gray-800">My Profile</h1>
 
-
-
+    <!-- Table -->
     <div class="row">
         <div class="col-lg-8">
             <div class="card mb-3" style="max-width: 540px;">
                 <div class="row g-0">
                     <div class="col">
-                        <img src="<?= base_url('/img/' . $users['user_image']) ?>" class="card-img" style=" 200px" alt="<?= $users['username']; ?> >
+                        <img src="<?= base_url('/img/' . $users['user_image']) ?>" class="card-img" style=" 200px" alt="<?= $users['username']; ?> ">
                     </div>
                     <div class=" col-md-8">
                         <div class="card-body">
@@ -28,9 +27,7 @@
 
                                 <li class="list-group-item"><?= $users['email']; ?></li>
 
-                                <li class="list-group-item">
-                                    <small><a href="<?= base_url('admin'); ?>">&laquo; back to users list</a></small>
-                                </li>
+
                             </ul>
 
                         </div>
@@ -39,7 +36,8 @@
             </div>
         </div>
     </div>
-
 </div>
+
+<!-- end table -->
 
 <?= $this->endSection(); ?>

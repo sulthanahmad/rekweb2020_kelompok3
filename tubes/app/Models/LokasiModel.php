@@ -18,5 +18,11 @@ class LokasiModel extends Model
 
         return $this->where(['id' => $id])->first();
     }
+
+
+    public function pencarian($kunci)
+    {
+        return $this->table('lokasi')->like('daerah', $kunci);
+    }
 }
 //--------------------------------------------------------------------

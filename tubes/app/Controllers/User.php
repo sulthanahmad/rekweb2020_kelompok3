@@ -16,12 +16,24 @@ class User extends BaseController
 
     public function index()
     {
+
+
+
+
         $data['title'] = 'Home | Lepesto';
 
         $this->builder->select('id, daerah, kota');
         $this->query = $this->builder->get();
 
         $data['lokasi'] = $this->query->getResult();
+
+
+
+
+
+
+
+
 
         return view('user/index', $data);
     }

@@ -4,12 +4,10 @@
 
 <div class="container-fluid">
 
-
-
-
     <!-- Page Heading -->
     <h1 class="h3 mb-4 text-gray-800">User List</h1>
 
+    <!-- Table -->
     <table class="table">
         <thead>
             <tr>
@@ -22,9 +20,7 @@
         </thead>
         <tbody>
             <?php $i = 1; ?>
-            <?php foreach ($users as $user) :
-                // echo "<pre>", var_dump($user), "</pre>;"
-            ?>
+            <?php foreach ($users as $user) : ?>
                 <tr>
                     <th scope="row"><?= $i++; ?></th>
                     <td><?= $user['username'] ?></td>
@@ -43,5 +39,8 @@
         </tbody>
     </table>
 </div>
+
+<!-- End -->
+
 
 <?= $this->endSection(); ?>

@@ -11,11 +11,9 @@ function get_CURL($url)
     return json_decode($result, true);
 }
 
+$result = get_CURL('https://developers.zomato.com/api/v2.1/restaurant?&res_id=' . $res_id . '&apikey=0a62db4d542c54b65c4c29f09daa2bb6'); ?>
 
-$result = get_CURL('https://developers.zomato.com/api/v2.1/restaurant?&res_id=' . $res_id . '&apikey=0a62db4d542c54b65c4c29f09daa2bb6');
-
-
-?>
+<!-- end CURL -->
 
 <!doctype html>
 <html lang="en">
@@ -42,12 +40,7 @@ $result = get_CURL('https://developers.zomato.com/api/v2.1/restaurant?&res_id=' 
     <nav class="navbar navbar-dark bg-dark fixed-top">
         <div class="container-fluid">
             <a class="navbar-brand " href="/user/index"><img src="/img/logo2.png" height="35" alt=""></a>
-            <form class="d-flex">
-                <div class="d-flex ">
-                    <input class="form-control me-1  " type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-orange" type="submit"><i class="fas fa-search"></i></button>
-                </div>
-            </form>
+
 
             <a class="login-link btn btn-login" href="
                 <?php if (logged_in() && (in_groups('admin'))) { ?>
@@ -102,7 +95,7 @@ $result = get_CURL('https://developers.zomato.com/api/v2.1/restaurant?&res_id=' 
                         <a class="nav-link active" href="#" style=" background-color: #d17128;">Deskripsi</a>
                     </li>
                     <li class="nav-item" style="padding-right: 10px;">
-                        <a class="nav-link " href="#" style="color: black;">Gallery</a>
+                        <a class="nav-link " href="" style="color: black;">Gallery</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link " href="#" style="color: black;">Menu</a>
@@ -211,17 +204,6 @@ $result = get_CURL('https://developers.zomato.com/api/v2.1/restaurant?&res_id=' 
         </div>
         <!-- Copyright -->
     </footer>
-
-
-
-
-
-
-
-
-
-
-
 
 
     <!-- Optional JavaScript; choose one of the two! -->

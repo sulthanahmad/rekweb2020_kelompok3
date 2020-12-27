@@ -42,12 +42,7 @@ $result = get_CURL('https://developers.zomato.com/api/v2.1/restaurant?lat' . $re
     <nav class="navbar navbar-dark bg-dark fixed-top">
         <div class="container-fluid">
             <a class="navbar-brand" href="/user/index"><img src="/img/logo2.png" height="35" alt=""></a>
-            <form class="d-flex">
-                <div class="d-flex ">
-                    <input class="form-control me-1  " type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-orange" type="submit"><i class="fas fa-search"></i></button>
-                </div>
-            </form>
+
 
             <a class="login-link btn btn-login" href="
                 <?php if (logged_in() && (in_groups('admin'))) { ?>
@@ -70,16 +65,25 @@ $result = get_CURL('https://developers.zomato.com/api/v2.1/restaurant?lat' . $re
     </nav>
 
 
-    <p class="a-detail text-center  "><a class="a-detail" href="/user/index"> Beranda </a> / Riau / <b> Resto </b></p>
+    <p class="a-detail text-center"><a class="a-detail" href="/user/index"> Beranda </a> / Riau / <b> <?= $result['name']; ?> </b></p>
 
     <div class="container mb-5 pb-5 ">
-        <div class="card bg-transparent text-white mt-4 " style="border: transparent;">
-            <img src="<?= $result['thumb']; ?>" class="card-img img-resto" style="width: 600px;">
+
+        <div class="card bg-transparent text-white mt-4 " style="border: transparent; margin-right:400px;">
+
+            <img src="<?= $result['featured_image']; ?>" class="card-img img-resto" style="width: 650px; height: 400px ">
+
+            <div class="card bg-transparent text-white mt-4 d-inline " style="border: transparent;">
+                <img src="<?= $result['menu_url']; ?>" class="card-img " style="width: 400px; height: 200px ">
+            </div>
         </div>
-        <h2 class="card-title mb-4 pt-3"><b><?= $result['name']; ?></b></h2>
-        <p class="p-detail"> Restoran Jepang</p>
-        <p class="p-detail"> Riau </p>
+
+        <h2 class="card-title mb-4 pt-3"><b><?= $result['name']; ?> </b></h2>
+        <p class="p-detail"> Rating <?= $result['user_rating']['aggregate_rating']; ?></p>
+        <p class="p-detail"> <?= $result['cuisines']; ?></p>
+        <p class="p-detail"> <?= $result['location']['locality']; ?> </p>
         <p class="p-detail"> <?= $result['timings']; ?> </p>
+
         <ul class="nav nav-pills card-header-pills ">
             <li class="nav-item" style="padding-right: 10px;">
                 <a class="nav-link active" href="#" style=" background-color: #d17128;"><i class="fas fa-directions"></i> Petunjuk</a>
@@ -109,19 +113,28 @@ $result = get_CURL('https://developers.zomato.com/api/v2.1/restaurant?lat' . $re
             </div>
             <div class="card-body ">
                 <h5 class="text-left"><b> Tentang Restoran Ini </b></h5>
-                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                <p class="card-text mt-5" style="font-size: 25px;">Menu</p>
                 <a href="#" class="btn btn-primary">Go somewhere</a>
+                <p class="card-text mt-5" style="font-size: 25px;">Harga</p>
+                <p class="p-detail">• Rp. <?= $result['average_cost_for_two']; ?> Untuk 2 orang.</p>
+                <p class="card-text mt-5" style="font-size: 25px;">Fasilitas</p>
+                <?php for ($i = 0; $i < 5; $i++) : ?>
+                    <p class="p-detail">• <?= $result['highlights'][$i]; ?> </p>
+                <?php endfor; ?>
             </div>
         </div>
     </div>
 
 
-    <div class="container" style="margin-right: -570px; margin-top:-495px; height:500px; ">
+    <div class="container" style="margin-right: -570px; margin-top:-495px; height:800px; ">
         <div class="card" style="width: 20rem; height: 400px;  box-shadow: 1px 2px 2px 2px rgb(184, 181, 181);">
             <div class="card-body">
                 <h5>No Telpon</h5>
-                <p class="card-text pb-4">08962718263</p>
+                <p class="card-text pb-4"><?= $result['phone_numbers']; ?></p>
+
                 <h5>Petunjuk</h5>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.9078322374035!2d107.59548465050311!3d-6.901625269435364!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e669e47ad56b%3A0xa3947cf57464652b!2sGormeteria!5e0!3m2!1sen!2sid!4v1608780621467!5m2!1sen!2sid" style="border:0; width: 100%;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+                <p class="card-text pb-4"><?= $result['location']['address']; ?></p>
             </div>
         </div>
     </div>

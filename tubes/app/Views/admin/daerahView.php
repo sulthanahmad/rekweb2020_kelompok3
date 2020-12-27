@@ -6,6 +6,10 @@
 
     <!-- Page Heading -->
     <h1 class="h3 mb-4 text-gray-800">Daerah List</h1>
+    <form class="form-inline my-2 my-lg-0 pb-3">
+        <input type="text" class="form-control" name="cari" placeholder="Mencari Data Berdasarkan Nama">
+        <button class="btn btn-danger btn-outline border-white  my-2 my-sm-0 mr-sm-2" type="submit">Search</button>
+    </form>
     <a href="/daerah" class="btn btn-danger btn-tambah" style="float:right; margin-top:-60px;"> Tambah </a>
     <table class="table">
         <thead>
@@ -39,8 +43,8 @@
             <?php endforeach; ?>
         </tbody>
     </table>
-
-
 </div>
+
+<!-- End -->
 
 <?= $this->endSection(); ?>

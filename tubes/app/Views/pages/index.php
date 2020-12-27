@@ -41,12 +41,7 @@ $result = get_CURL('https://developers.zomato.com/api/v2.1/geocode?lat=' . $rest
     <nav class="navbar navbar-dark bg-dark fixed-top">
         <div class="container-fluid">
             <a class="navbar-brand" href="/user/index"><img src="/img/logo2.png" height="35" alt=""></a>
-            <form class="d-flex">
-                <div class="d-flex ">
-                    <input class="form-control me-1  " type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-orange" type="submit"><i class="fas fa-search"></i></button>
-                </div>
-            </form>
+
 
             <a class="login-link btn btn-login" href="
                 <?php if (logged_in() && (in_groups('admin'))) { ?>

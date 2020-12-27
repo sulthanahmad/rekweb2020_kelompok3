@@ -15,11 +15,26 @@ class Daerah extends BaseController
 
     public function daerahView()
     {
-        $data = [
 
-            'title' => 'Edit Profile',
+        $kunci = $this->request->getVar('cari');
+        if ($kunci) {
+            $query = $this->lokasiModel->pencarian($kunci);
+            $jumlah = "Pencarian dengan nama <B>$kunci</B> ditemukan " . $query->affectedRows() . " Data";
+        } else {
+            $query = $this->lokasiModel;
+            $jumlah = "";
+        }
+
+        $data = [
+            'title' => 'dwaawd',
             'lokasi' => $this->lokasiModel->getLokasi()
         ];
+        $data['daerah'] = $query->paginate(10);
+        $data['pager'] = $this->lokasiModel->pager;
+        $data['page'] = $this->request->getVar('page') ? $this->request->getVar('page') : 1;
+
+
+
 
         return view('admin/daerahView', $data);
     }

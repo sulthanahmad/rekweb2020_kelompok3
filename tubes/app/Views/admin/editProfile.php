@@ -12,7 +12,7 @@
     <form action="/admin/updateProfile/<?= $user['id']; ?>" method="post" enctype="multipart/form-data">
         <img src="<?= base_url('/img/' . $user['user_image']) ?>" class="card-img" alt="<?= $user['username']; ?>" style="width: 250px;">
         <div class="custom-file mb-3 mt-5">
-            <input type="file" name="user_image" class="custom-file-input" id="validatedCustomFile" required>
+            <input type="file" name="user_image" class="custom-file-input" id="validatedCustomFile">
             <label class="custom-file-label" for="validatedCustomFile">Choose file...</label>
 
         </div>
@@ -33,10 +33,8 @@
 
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>
-
-
-
-
 </div>
+
+<!-- End -->
 
 <?= $this->endSection(); ?>

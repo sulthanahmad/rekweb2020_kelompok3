@@ -11,14 +11,11 @@ function get_CURL($url)
     return json_decode($result, true);
 }
 
+$result = get_CURL('https://developers.zomato.com/api/v2.1/geocode?lat=-6.903363&lon=107.6080522&apikey=0a62db4d542c54b65c4c29f09daa2bb6'); ?>
 
-$result = get_CURL('https://developers.zomato.com/api/v2.1/geocode?lat=-6.903363&lon=107.6080522&apikey=0a62db4d542c54b65c4c29f09daa2bb6');
+<!-- END PHP CURL -->
 
-
-
-
-?>
-
+<!-- HTML -->
 <!doctype html>
 <html lang="en">
 
@@ -33,23 +30,15 @@ $result = get_CURL('https://developers.zomato.com/api/v2.1/geocode?lat=-6.903363
     <link rel="stylesheet" href="/css/custom.css">
     <link rel="icon" href="/img/icon2.png" type="image/gif" sizes="16x16">
 
-
     <title><?= $title; ?></title>
 </head>
 
 <body>
 
-
     <!-- nav -->
     <nav class="navbar navbar-dark bg-dark fixed-top">
         <div class="container-fluid">
             <a class="navbar-brand" href="/user/index"> <img src="/img/logo2.png" height="35" alt=""></a>
-            <form class="d-flex">
-                <div class="d-flex ">
-                    <input class="form-control me-1  " type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-orange" type="submit"><i class="fas fa-search"></i></button>
-                </div>
-            </form>
 
             <a class="login-link btn btn-login" href="
                 <?php if (logged_in() && (in_groups('admin'))) { ?>
@@ -65,15 +54,14 @@ $result = get_CURL('https://developers.zomato.com/api/v2.1/geocode?lat=-6.903363
                 <?php } else { ?>
                     Login
                 <?php } ?>
-
             </a>
-
         </div>
     </nav>
 
+    <!-- END NAVBAR -->
 
 
-
+    <!-- ISI -->
     <div class="container pt-5 mb-5 card-detail p-lokasi" style="margin-top:5px;">
         <p class="a-pages text-center"><a class="a-pages" href="/user/index"> Beranda </a> / <b> Temukan Restoran </b></p>
         <h3 class=""> Temukan Restoran</h3>
@@ -95,14 +83,7 @@ $result = get_CURL('https://developers.zomato.com/api/v2.1/geocode?lat=-6.903363
             <?php endfor; ?>
         </div>
     </div>
-
-
-
-
-
-
-
-
+    <!-- END -->
 
     <!-- Footer -->
     <footer class="bg-footer text-black text-center text-lg-start pt-2">
@@ -176,18 +157,6 @@ $result = get_CURL('https://developers.zomato.com/api/v2.1/geocode?lat=-6.903363
         </div>
         <!-- Copyright -->
     </footer>
-
-
-
-
-
-
-
-
-
-
-
-
 
     <!-- Optional JavaScript; choose one of the two! -->
 
