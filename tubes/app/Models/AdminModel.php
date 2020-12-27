@@ -34,12 +34,17 @@ class AdminModel extends Model
     }
 
 
-    public function getProfile()
+    public function getProfile($id)
     {
+        if ($id == false) {
+            return $this->findAll();
+        }
 
+        return $this->where(['id' => $id])->first();
+    }
 
-
-
-        return $this->where(['id' => user_id()])->first();
+    public function pencarian($kunci)
+    {
+        return $this->table('users')->like('username', $kunci);
     }
 }

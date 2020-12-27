@@ -101,6 +101,12 @@ $result = get_CURL('https://developers.zomato.com/api/v2.1/geocode?lat=-6.903363
                     <p class="pt-0">
                         Jalan Dr. Setiabudi No 193, Bandung
                     </p>
+                    <p>
+                        <i class="fab fa-instagram"></i>
+                        <i class="fab fa-facebook"></i>
+                        <i class="fab fa-twitter"></i>
+
+                    </p>
                 </div>
                 <!--Grid column-->
 
@@ -110,40 +116,14 @@ $result = get_CURL('https://developers.zomato.com/api/v2.1/geocode?lat=-6.903363
 
                     <ul class="list-unstyled mb-0 text-black">
                         <li>
-                            <a href="#!" class="text-white">Link 1</a>
+                            <a href="/main" class="text-black" style="text-decoration: none; color:black">Temukan Restoran</a>
                         </li>
-                        <li>
-                            <a href="#!" class="text-white">Link 2</a>
-                        </li>
-                        <li>
-                            <a href="#!" class="text-white">Link 3</a>
-                        </li>
-                        <li>
-                            <a href="#!" class="text-white">Link 4</a>
-                        </li>
+
                     </ul>
                 </div>
                 <!--Grid column-->
 
-                <!--Grid column-->
-                <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-                    <h5 class="text-uppercase mb-0">Links</h5>
 
-                    <ul class="list-unstyled">
-                        <li>
-                            <a href="#!" class="text-white">Link 1</a>
-                        </li>
-                        <li>
-                            <a href="#!" class="text-white">Link 2</a>
-                        </li>
-                        <li>
-                            <a href="#!" class="text-white">Link 3</a>
-                        </li>
-                        <li>
-                            <a href="#!" class="text-white">Link 4</a>
-                        </li>
-                    </ul>
-                </div>
                 <!--Grid column-->
             </div>
             <!--Grid row-->

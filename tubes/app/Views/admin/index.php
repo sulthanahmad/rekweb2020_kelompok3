@@ -6,7 +6,10 @@
 
     <!-- Page Heading -->
     <h1 class="h3 mb-4 text-gray-800">User List</h1>
-
+    <form class="form-inline my-2 my-lg-0 pb-3">
+        <input type="text" class="form-control" name="cari" placeholder="Mencari Data Berdasarkan Nama">
+        <button class="btn btn-danger btn-outline border-white  my-2 my-sm-0 mr-sm-2" type="submit">Search</button>
+    </form>
     <!-- Table -->
     <table class="table">
         <thead>
@@ -28,8 +31,9 @@
                     <td><?= $user['name']; ?></td>
                     <td>
                         <a href="/admin/detail/<?= $user['user_id']; ?>" class="btn btn-"> Detail </a>
-                        <form action="/admin/<?= $user['user_id']; ?>" method="post" class="d-inline">
+                        <form action="/admin/index/<?= $user['user_id']; ?>" method="post" class="d-inline">
                             <?= csrf_field(); ?>
+
                             <input type="hidden" name="_method" value="DELETE">
                             <button type="submit" class="btn btn-danger" onclick="return confirm('apakah anda yakin?');">Delete</button>
                         </form>

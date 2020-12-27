@@ -71,11 +71,8 @@ $result = get_CURL('https://developers.zomato.com/api/v2.1/restaurant?lat' . $re
 
         <div class="card bg-transparent text-white mt-4 " style="border: transparent; margin-right:400px;">
 
-            <img src="<?= $result['featured_image']; ?>" class="card-img img-resto" style="width: 650px; height: 400px ">
+            <img src="<?= $result['featured_image']; ?>" class="card-img img-resto" style="width: 820px; height: 500px ">
 
-            <div class="card bg-transparent text-white mt-4 d-inline " style="border: transparent;">
-                <img src="<?= $result['menu_url']; ?>" class="card-img " style="width: 400px; height: 200px ">
-            </div>
         </div>
 
         <h2 class="card-title mb-4 pt-3"><b><?= $result['name']; ?> </b></h2>
@@ -84,14 +81,7 @@ $result = get_CURL('https://developers.zomato.com/api/v2.1/restaurant?lat' . $re
         <p class="p-detail"> <?= $result['location']['locality']; ?> </p>
         <p class="p-detail"> <?= $result['timings']; ?> </p>
 
-        <ul class="nav nav-pills card-header-pills ">
-            <li class="nav-item" style="padding-right: 10px;">
-                <a class="nav-link active" href="#" style=" background-color: #d17128;"><i class="fas fa-directions"></i> Petunjuk</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link active" href="#" style=" background-color: #d17128;"><i class="fas fa-share"></i> Copy URL</a>
-            </li>
-        </ul>
+
     </div>
 
 
@@ -126,7 +116,7 @@ $result = get_CURL('https://developers.zomato.com/api/v2.1/restaurant?lat' . $re
     </div>
 
 
-    <div class="container" style="margin-right: -570px; margin-top:-495px; height:800px; ">
+    <div class="container" style="margin-right: -570px; margin-top:-1200px; height:1500px; ">
         <div class="card" style="width: 20rem; height: 400px;  box-shadow: 1px 2px 2px 2px rgb(184, 181, 181);">
             <div class="card-body">
                 <h5>No Telpon</h5>
@@ -138,16 +128,6 @@ $result = get_CURL('https://developers.zomato.com/api/v2.1/restaurant?lat' . $re
             </div>
         </div>
     </div>
-
-
-
-
-
-
-
-
-
-
 
 
 

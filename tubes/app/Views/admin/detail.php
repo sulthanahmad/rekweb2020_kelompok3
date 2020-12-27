@@ -39,6 +39,6 @@
     </div>
 </div>
 
-<!-- Page Heading -->
+<!-- End -->
 
 <?= $this->endSection(); ?>

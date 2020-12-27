@@ -63,8 +63,11 @@ $routes->get('/myProfile', 'Admin::myProfile');
 
 //gallery Res
 $routes->get('/galleryRes', 'Main::galleryRes');
+$routes->get('/mainRes', 'Main::mainRes');
 
 $routes->delete('/admin/daerahView/(:num)', 'Admin::delete/$1', ['filter' => 'role:admin']);
+$routes->delete('/admin/index/(:num)', 'Admin::deleteUser/$1', ['filter' => 'role:admin']);
+
 $routes->get('/admin/daerahEdit/(:segment)', 'Admin::daerahEdit/$1', ['filter' => 'role:admin']);
 
 

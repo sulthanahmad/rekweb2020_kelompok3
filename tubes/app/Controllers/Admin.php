@@ -17,11 +17,24 @@ class Admin extends BaseController
 
     public function index()
     {
-        $data = [
+        $kunci = $this->request->getVar('cari');
+        if ($kunci) {
+            $query = $this->adminModel->pencarian($kunci);
+            $jumlah = "Pencarian dengan nama <B>$kunci</B> ditemukan " . $query->affectedRows() . " Data";
+        } else {
+            $query = $this->adminModel;
+            $jumlah = "";
+        }
 
-            'title' => 'Edit Profile',
+        $data = [
+            'title' => 'Home Admin | Le Pesto',
             'users' => $this->adminModel->getUser()
         ];
+        $data['username'] = $query->paginate(10);
+        $data['pager'] = $this->adminModel->pager;
+        $data['page'] = $this->request->getVar('page') ? $this->request->getVar('page') : 1;
+
+
 
         return view('admin/index', $data);
     }
@@ -113,6 +126,16 @@ class Admin extends BaseController
     }
     //--------------------------------------------------------------------
 
+    public function deleteUser($id)
+    {
+        // cari gambar berdasarkan id
+        $users = $this->adminModel->find($id);
+
+
+        $this->adminModel->where('id',  $id)->delete();
+        session()->setFlashdata('pesan', 'Data berhasil dihapus');
+        return redirect()->to('/admin/index');
+    }
 
     public function daerahEdit($id)
     {
