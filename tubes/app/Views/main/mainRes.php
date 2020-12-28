@@ -32,6 +32,18 @@ $result = get_CURL('https://developers.zomato.com/api/v2.1/restaurant?&res_id=' 
 
     <title><?= $result['name']; ?> | Le Pesto</title>
 </head>
+<style>
+    .img-menu {
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        padding: 5px;
+        width: 150px;
+    }
+
+    .img-menu:hover {
+        box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
+    }
+</style>
 
 <body>
 
@@ -63,26 +75,17 @@ $result = get_CURL('https://developers.zomato.com/api/v2.1/restaurant?&res_id=' 
     </nav>
 
 
-    <p class="a-detail text-center  "><a class="a-detail" href="/user/index"> Beranda </a> / Riau / <b> Resto </b></p>
+    <p class="a-detail text-center" style="margin-right: -155px; "><a class="a-detail" href="/user/index"> Beranda </a> / <a href="" style="text-decoration: none; color:black; ">Temukan Restoran</a> / <b> <?= $result['name']; ?> </b></p>
 
-    <div class="container mb-5 pb-5 ">
+    <div class="container mb-5 pb-2 ">
         <div class="card bg-transparent text-white mt-4 " style="border: transparent;">
-            <img src="<?= $result['featured_image']; ?>" class="card-img img-resto" style="width: 650px; height: 400px ">
+            <img src="<?= $result['featured_image']; ?>" class="card-img img-resto" style="width: 820px; height: 500px ">
         </div>
         <h2 class="card-title mb-4 pt-3"><b><?= $result['name']; ?></b></h2>
-        <p class="p-detail"> Rating <?= $result['user_rating']['aggregate_rating']; ?></p>
+        <p class="p-detail"> Rating <?= $result['user_rating']['aggregate_rating']; ?> <?= $result['user_rating']['rating_text']; ?></p>
         <p class="p-detail"> <?= $result['cuisines']; ?></p>
         <p class="p-detail"> <?= $result['location']['locality']; ?> </p>
         <p class="p-detail"> <?= $result['timings']; ?> </p>
-
-        <ul class="nav nav-pills card-header-pills ">
-            <li class="nav-item" style="padding-right: 10px;">
-                <a class="nav-link active" href="#" style=" background-color: #d17128;"><i class="fas fa-directions"></i> Petunjuk</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link active" href="#" style=" background-color: #d17128;"><i class="fas fa-share"></i> Copy URL</a>
-            </li>
-        </ul>
     </div>
 
 
@@ -94,18 +97,25 @@ $result = get_CURL('https://developers.zomato.com/api/v2.1/restaurant?&res_id=' 
                     <li class="nav-item" style="padding-right: 10px;">
                         <a class="nav-link active" href="#" style=" background-color: #d17128;">Deskripsi</a>
                     </li>
-                    <li class="nav-item" style="padding-right: 10px;">
-                        <a class="nav-link " href="/galleryRes?res_id=<?= $result['id']; ?>" style="color: black;">Gallery</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link " href="#" style="color: black;">Menu</a>
-                    </li>
+
                 </ul>
             </div>
             <div class="card-body ">
                 <h5 class="text-left"><b> Tentang Restoran Ini </b></h5>
                 <p class="card-text mt-5" style="font-size: 25px;">Menu</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
+
+                <a target="_blank" href="/img/menu.jpg">
+                    <img src="/img/menu.jpg" alt="" class="img-menu">
+                </a>
+                <a target="_blank" href="/img/menu1.jpg">
+                    <img src="/img/menu1.jpg" alt="" class="img-menu">
+                </a>
+                <a class="img.thum" target="_blank" href="/img/menu2.jpg">
+                    <img src="/img/menu2.jpg" alt="" class="img-menu">
+                </a>
+                <a target="_blank" href="/img/menu3.jpg">
+                    <img src="/img/menu3.jpg" alt="" class="img-menu">
+                </a>
                 <p class="card-text mt-5" style="font-size: 25px;">Harga</p>
                 <p class="p-detail">• Rp. <?= $result['average_cost_for_two']; ?> Untuk 2 orang.</p>
                 <p class="card-text mt-5" style="font-size: 25px;">Fasilitas</p>
@@ -117,7 +127,7 @@ $result = get_CURL('https://developers.zomato.com/api/v2.1/restaurant?&res_id=' 
     </div>
 
 
-    <div class="container" style="margin-right: -570px; margin-top:-495px; height:800px; ">
+    <div class="container" style="margin-right: 700px; margin-top:-1150px; height:1600px; width:50px; ">
         <div class="card" style="width: 20rem; height: 400px;  box-shadow: 1px 2px 2px 2px rgb(184, 181, 181);">
             <div class="card-body">
                 <h5>No Telpon</h5>
@@ -129,6 +139,20 @@ $result = get_CURL('https://developers.zomato.com/api/v2.1/restaurant?&res_id=' 
             </div>
         </div>
     </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

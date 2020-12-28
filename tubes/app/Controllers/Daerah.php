@@ -26,7 +26,7 @@ class Daerah extends BaseController
         }
 
         $data = [
-            'title' => 'dwaawd',
+            'title' => 'Daftar Daerah | Le Pesto',
             'lokasi' => $this->lokasiModel->getLokasi()
         ];
         $data['daerah'] = $query->paginate(10);
@@ -45,7 +45,7 @@ class Daerah extends BaseController
     {
         $data = [
 
-            'title' => 'Edit Profile',
+            'title' => 'Tambah Daerah | Le Pesto',
 
         ];
 

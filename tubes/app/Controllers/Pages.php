@@ -18,7 +18,7 @@ class Pages extends BaseController
     {
 
         $data = [
-            'title' => 'Makanan di daerah',
+            'title' => 'Makanan di daerah | Le Peso',
             'resto' => $this->lokasiModel->getLokasi($id),
 
         ];
@@ -31,7 +31,7 @@ class Pages extends BaseController
     public function detailRes($id)
     {
         $data = [
-            'title' => 'Edit Profile',
+            'title' => 'Detail Restoran | Le Pesto',
             'resto' => $this->lokasiModel->getLokasi($id),
             'res_id' => $this->request->getVar('res_id')
         ];

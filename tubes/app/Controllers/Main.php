@@ -18,7 +18,7 @@ class Main extends BaseController
     {
 
         $data = [
-            'title' => 'Makanan di daerah',
+            'title' => 'Temukan Restoran | Le Pesto',
             'resto' => $this->lokasiModel->getLokasi()
 
         ];
@@ -30,6 +30,7 @@ class Main extends BaseController
     public function mainRes()
     {
         $data = [
+            'title' => 'Makanan Di daerah | Le Pesto',
             'res_id' => $this->request->getVar('res_id')
         ];
 

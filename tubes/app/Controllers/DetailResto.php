@@ -16,7 +16,7 @@ class DetailResto extends BaseController
     {
 
         $data = [
-            'title' => 'Edit Profile',
+            'title' => 'Detail Restoran | Le Pesto',
             'resto' => $this->lokasiModel->getLokasi($id)
 
 

@@ -67,7 +67,7 @@ $result = get_CURL('https://developers.zomato.com/api/v2.1/geocode?lat=' . $rest
 
 
     <div class="container pt-5 mb-5 card-detail p-lokasi" style="margin-top:-5px;">
-        <p class="a-pages text-center"><a class="a-pages" href="/user/index"> Beranda </a> / <b> <?= $resto['daerah']; ?> </b> </p>
+        <p class="a-detail text-center" style="margin-right: 40px; margin-top:30px"><a class="a-detail" href="/user/index"> Beranda </a> / <b> Riau </b></p>
         <h3 class=""> Makanan daerah di daerah <?= $resto['daerah']; ?></h3>
         <div class="row justify-content-left mt-5">
             <?php for ($i = 0; $i < 9; $i++) : ?>

@@ -45,7 +45,7 @@ class Admin extends BaseController
     {
         $data = [
 
-            'title' => 'Edit Profile',
+            'title' => 'Detail Profile | Le Pesto',
             'users' => $this->adminModel->getProfile($id)
         ];
 
@@ -66,7 +66,7 @@ class Admin extends BaseController
     {
         $data = [
 
-            'title' => 'Edit Profile',
+            'title' => 'Edit Profile | Le Pesto',
             'user' => $this->adminModel->getAdmin()
         ];
 
@@ -104,7 +104,7 @@ class Admin extends BaseController
     {
         $data = [
 
-            'title' => 'Edit Profile',
+            'title' => 'Daftar Daerah | Le Pesto',
             'lokasi' => $this->lokasiModel->getLokasi()
         ];
 
@@ -140,7 +140,7 @@ class Admin extends BaseController
     public function daerahEdit($id)
     {
         $data = [
-            'title' => 'Form Ubah Data Lokasi',
+            'title' => 'Ubah Daerah | Le Pesto',
             'validation' => \Config\Services::validation(),
             'lokasi' => $this->lokasiModel->getLokasi($id)
         ];

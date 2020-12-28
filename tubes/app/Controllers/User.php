@@ -29,12 +29,6 @@ class User extends BaseController
 
 
 
-
-
-
-
-
-
         return view('user/index', $data);
     }
     //--------------------------------------------------------------------
@@ -42,7 +36,7 @@ class User extends BaseController
 
     public function profile()
     {
-        $data['title'] = 'Profile';
+        $data['title'] = ' My Profile';
 
         return view('user/profile', $data);
     }
